@@ -8,8 +8,10 @@ from streamlit_webrtc import webrtc_streamer, VideoTransformerBase, RTCConfigura
 import threading
 import time
 lock = threading.Lock()
-text_container = ""
-model_dict = pickle.load(open('./model.p', 'rb'))
+@st.cache_data(ttl=24*3600)
+def load_model():
+    return pickle.load(open('./model.p', 'rb'))
+model_dict = load_model()
 model = model_dict['model']
 mp_hands = mp.solutions.hands
 mp_drawing = mp.solutions.drawing_utils
