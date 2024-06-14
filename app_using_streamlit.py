@@ -1,7 +1,6 @@
 import streamlit as st
 import pickle
 import numpy as np
-import matplotlib.pyplot as plt
 import mediapipe as mp
 import cv2
 from streamlit_webrtc import webrtc_streamer, VideoTransformerBase, RTCConfiguration, VideoProcessorBase, WebRtcMode
